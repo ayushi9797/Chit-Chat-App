@@ -1,4 +1,4 @@
-const express=require("express");
+const express = require("express");
 const {connection}=require("./config/db")
 const {Server}=require("socket.io");
 const http=require("http");
