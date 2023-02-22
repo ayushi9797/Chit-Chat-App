@@ -2,10 +2,21 @@ body{
     margin-top:20px;
 }
 
+/*  */
+
+:root {
+
+    --first-color :#2B3467;
+    /* --sec-color :rgb(255, 184, 220) ; */
+    --third-color:
+
+}
+/*  */
+
 #main-container{
     position: relative;
     width: 100%;
-    background-color: rgb(211, 236, 253);
+    background: linear-gradient(#2B3467,aqua);
     overflow: hidden;
 }
 
@@ -23,7 +34,8 @@ header a{
 }
 
 #chats{
-    visibility: hidden;
+    visibility: hidden;     
+    
 }
 #status{
     visibility: hidden;
@@ -32,7 +44,8 @@ header a{
 .tabs input{
     display: flex;
     background-color: white;
-    border-bottom: 1px solid black ;
+    border-bottom: 1px solid white ;
+    font-size: 15px;
 }
 .buttons{
     position: relative;
@@ -43,7 +56,7 @@ header a{
 
 .buttons label{
     width: 40%;
-    color: rgb(88, 87, 87);
+    color: white;
     opacity: 0.75;
     text-align: center;
     padding: 5px 0;
@@ -87,7 +100,7 @@ header a{
     bottom: 0;
     width: 33.33%;
     height: 3px;
-    background-color: rgb(93, 114, 124);
+    background-color:white;
     transition: 0.5s;
 
 }
@@ -124,11 +137,13 @@ header a{
 }
 .chat-app .chat {
     margin-left: 280px;
-    border-left: 1px solid #eaeaea
+    border-left: 1px solid #eaeaea;
 }
 
 #plist{
     height: 900px;
+    background: linear-gradient(#2B3467,aqua)
+
 }
 
 .people-list {
@@ -199,11 +214,14 @@ header a{
     padding-left: 10px;
     align-items: center;
     font-size: 17px;
+    background-color: var(--third-color);
+
 }
 
 .chat .chat-history {
     padding: 20px;
-    border-bottom: 2px solid #fff
+    border-bottom: 2px solid #fff;
+    background-color: var(--sec-color);
 }
 
 .chat .chat-history ul {
@@ -234,7 +252,7 @@ header a{
 }
 
 .chat .chat-history .message {
-    color: #444;
+    color: black;
     padding: 18px 20px;
     line-height: 26px;
     font-size: 16px;
@@ -313,7 +331,7 @@ header a{
 }
 
 .offline {
-    color: #e47297
+    color: red
 }
 
 .me {
