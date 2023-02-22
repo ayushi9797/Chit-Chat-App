@@ -1,10 +1,11 @@
-const express=require("express");
+const express = require("express");
 const {connection}=require("./config/db")
 const {Server}=require("socket.io");
 const http=require("http");
 const path = require("path");
 require('dotenv').config();
-const {userRouter}=require("./routes/user.route")
+const {userRouter}=require("./routes/user.route");
+const {authenticate}=require("./config/db")
 
 
 // server
