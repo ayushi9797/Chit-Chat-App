@@ -1,0 +1,31 @@
+{
+  "name": "tangy-geese-4843",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon ./server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayushi9797/tangy-geese-4843.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayushi9797/tangy-geese-4843/issues"
+  },
+  "homepage": "https://github.com/ayushi9797/tangy-geese-4843#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.9.2",
+    "nodemon": "^2.0.20",
+    "redis": "^4.6.4",
+    "socket.io": "^4.6.1"
+  }
+}
