@@ -9,6 +9,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="css/new.css">
+    
     <title>Document</title>
   </head>
   <body>
@@ -21,9 +23,11 @@
         <!-- onclick -->
         <input onclick="" type="radio" id="status" name="group" checked />
 
+
         <div class="buttons">
           <label for="chats">Chats</label>
           <label for="status">Status</label>
+
           <div class="underline"></div>
         </div>
         <div class="content">
@@ -125,6 +129,11 @@
                           </div>
                         </li>
                       </ul>
+
+                      <div id="gc">
+                         <div><p>Create Group Chat</p></div>
+                         <div><Button><a href="gc.html"><ion-icon name="add-outline"></ion-icon></a></Button></div>
+                      </div>
                     </div>
                     <div class="chat">
                       <div class="chat-header clearfix">
@@ -209,11 +218,83 @@
 
           </div>
           
-
+          <div class="box">
+            
+            <div class="stories-container">
+              <!-- js -->
+            </div>
+        
+            <div class="story-full">
+              <div class="content">
+                <div class="close-btn">
+                  <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="#fff"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                  
+                </div>
+        
+                <div class="left-arrow">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="#fff"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                </div>
+        
+                <img src="images/1.png" alt="" />
+        
+                <div class="right-arrow">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="#fff"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+        
+                <div class="title">Test Title</div>
+              </div>
+            </div>
+            <div class="names">
+              <p>Ayushi Soni</p>
+              <p>Ayushi Soni</p>
+              <p>Ayushi Soni</p>
+              <p>Ayushi Soni</p>
+              <p>Ayushi Soni</p>
+              <p>Ayushi Soni</p>
+            </div>
         </div>
       </div>
     </div>
-   
+   <script src="bootstrap3.3/js/status.js"></script>
   </body>
 </html>
 
@@ -222,4 +303,9 @@
   integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
   crossorigin="anonymous"
 ></script>
-<script src="./Scripts/client.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="./Scripts/client.js">
+
+</script>
+

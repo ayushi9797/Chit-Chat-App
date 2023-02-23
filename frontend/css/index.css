@@ -1,8 +1,6 @@
-body{
-    margin-top:20px;
-}
 
 /*  */
+
 
 :root {
 
@@ -23,7 +21,7 @@ body{
 header{
     position: relative;
     height: 30px;
-    padding: 20px;
+    height: 90px;
     align-items: center;
 }
 header a{
@@ -34,7 +32,7 @@ header a{
 }
 
 #chats{
-    visibility: hidden;     
+    visibility: hidden;  
     
 }
 #status{
@@ -99,8 +97,8 @@ header a{
     left: 0;
     bottom: 0;
     width: 33.33%;
-    height: 3px;
-    background-color:white;
+    height: 6px;
+    background-color:rgb(175, 223, 243);
     transition: 0.5s;
 
 }
@@ -123,8 +121,9 @@ header a{
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
 }
 .chat-app .people-list {
-    width: 250px;
+    width: 220px;
     position: absolute;
+    margin-left: 20px;
     left: 0;
     top: 0;
     padding: 20px;
@@ -136,12 +135,13 @@ header a{
     justify-content: space-around;
 }
 .chat-app .chat {
-    margin-left: 280px;
+    margin-left: 300px;
+    width: 1200px;
     border-left: 1px solid #eaeaea;
 }
 
 #plist{
-    height: 900px;
+    height: 620px;
     background: linear-gradient(#2B3467,aqua)
 
 }
@@ -154,18 +154,22 @@ header a{
 }
 
 .people-list .chat-list li {
-    padding: 10px 15px;
+    padding: 10px 4px;
+    padding-top: 20px;
     list-style: none;
+    color: white;
     border-radius: 3px
 }
 
 .people-list .chat-list li:hover {
     background: #efefef;
+    color: black;
     cursor: pointer
 }
 
 .people-list .chat-list li.active {
-    background: #efefef
+    background: #efefef;
+    color: black;
 }
 
 .people-list .chat-list li .name {
@@ -312,9 +316,10 @@ header a{
 }
 
 .chat-message.clearfix input{
-    width: 400px;
+    width: 700px;
     height: 40px;
     margin-top: 14px;
+    border: 1px solid black;
 }
 
 
@@ -367,6 +372,27 @@ header a{
    border-radius: 100%;
 }
 
+
+#gc{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: bolder;
+    color: rgb(64, 62, 62);
+    justify-content: space-around;
+}
+
+#gc button{
+    width: 60px;
+    font-size: 30px;
+    height:60px;
+    border-radius: 50%;
+    color: black;
+    border: 2px solid rgb(102, 99, 99);
+    background-color: #eae3eb;
+
+}
 
 
 
