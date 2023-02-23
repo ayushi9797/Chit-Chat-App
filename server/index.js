@@ -21,7 +21,7 @@ const port=process.env.port || 3000;
 // Routes
 app.use("/user",userRouter);
 
-
+app.use("/")
 
 
 
