@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gc.css">
+    <title>Document</title>
+</head>
+<body>
+   <div id="head">
+    <Div>
+        <div><input type="text" placeholder="Search"></div>
+        <div><ion-icon name="search-outline"></ion-icon></div>
+    </Div>
+    <Div class="ion"><ion-icon name="notifications-outline"></ion-icon></Div>
+   </div>
+
+   <div id="box">
+
+    <!-- left-side -->
+    <div class="first">
+        <h2>CHIT-CHAT</h2> 
+        <input type="text" placeholder="Group Name">
+        <br>
+        <input type="text" placeholder="Enter Username">
+        <br>
+        <button>Join Chat</button>
+    </div>
+
+    <!-- right-side -->
+
+    <div class="second">
+        <div class="gcname">
+            <div class="chat-container">
+
+                <header class="chat-header">
+                  <h1></h1>
+                  <a id="leave-btn" class="btn">Exit Chat</a>
+                </header>
+
+                <main class="chat-main">
+                  <div class="chat-sidebar">
+                    <h3> Group Name:</h3>
+                    <h2 id="Group-Name"></h2>
+                    <h3> Users</h3>
+                    <ul id="users"></ul>
+                  </div>
+                  <div class="chat-messages"></div>
+                </main>
+
+                <div class="chat-form-container">
+                  <form id="chat-form">
+                    <input
+                      id="msg"
+                      type="text"
+                      placeholder="Enter Message"
+                      required
+                      autocomplete="off"
+                    />
+
+                    <button class="btn">Send</button>
+
+                  </form>
+                </div>
+              </div>
+        </div>
+    </div>
+    
+   </div>
+</body>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</html>
