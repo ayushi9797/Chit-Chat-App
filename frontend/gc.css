@@ -1,14 +1,14 @@
 #head{
     width: 95%;
     margin: auto;
-    height:70px;
+    height:100px;
     border: 1px solid rgb(164, 160, 160);
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 30px;
     padding: 10px;
-    background-color: #b8b49f;
+    background-color: rgb(139, 157, 157);
 }
 
 #head>div input{
@@ -35,7 +35,7 @@
     width: 35%;
     margin-top: 10px;
     height: 580px;
-    background-color: #506b8a;
+	background-color: rgb(122, 143, 143);
 }
 
 .second{
@@ -63,13 +63,16 @@
     width: 290px;
     margin-left: 100px;
     border-radius: 7px;
+	border: none;
 }
 
 .first button{
     margin-top: 100px;
     margin-left: 170px;
     width: 160px;
-    height: 60px;
+    height: 50px;
+	font-size: 16px;
+	color: rgb(74, 70, 70);
 }
 
 .gcname{
@@ -80,8 +83,8 @@
 
 
 :root {
-	--dark-color-a: #506b8a;
-	--dark-color-b: #506b8a;
+	--dark-color-a: #6d8584;
+	--dark-color-b: #97a2a2;
 	--light-color: #ebedf5;
 	--success-color: #fdfcfd;
 	--error-color: #309997;
@@ -177,7 +180,7 @@ a {
 
 .chat-container {
 	max-width: 900px;
-	background: #ddd9d9;
+	background-color: white;
 	margin: 30px auto;
 	overflow: hidden;
 }

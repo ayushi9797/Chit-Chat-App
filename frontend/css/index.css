@@ -14,20 +14,22 @@
 #main-container{
     position: relative;
     width: 100%;
-    background: linear-gradient(#2B3467,aqua);
+    background-color: rgb(132, 162, 163);
     overflow: hidden;
 }
 
 header{
     position: relative;
     height: 30px;
-    height: 90px;
+    height: 100px;
     align-items: center;
 }
 header a{
     text-decoration: none;
     font-size: 20px;
     font-family: sans-serif;
+    color: white;
+    font-weight: bolder;
 
 }
 
@@ -44,6 +46,7 @@ header a{
     background-color: white;
     border-bottom: 1px solid white ;
     font-size: 15px;
+    border: none;
 }
 .buttons{
     position: relative;
@@ -65,17 +68,19 @@ header a{
     cursor: pointer;
 }
 .content{
-    background-color: rgb(249, 249, 249);
+    background-color: rgb(198, 202, 202);
     position: relative;
     width: calc(1540px*2);
     display: flex;
     transition: 0.5s;
     overflow: hidden;
+   
 }
 
 .content .box{
     position: relative;
     width: 1540px;
+    margin-top: 50px;
 }
 
 .tabs input:nth-child(1):checked ~ .content{
@@ -98,7 +103,7 @@ header a{
     bottom: 0;
     width: 33.33%;
     height: 6px;
-    background-color:rgb(175, 223, 243);
+    background-color:rgb(225, 224, 223);
     transition: 0.5s;
 
 }
@@ -141,8 +146,8 @@ header a{
 }
 
 #plist{
-    height: 620px;
-    background: linear-gradient(#2B3467,aqua)
+    height: 630px;
+    background-color: rgb(139, 157, 157);
 
 }
 
@@ -150,15 +155,15 @@ header a{
     -moz-transition: .5s;
     -o-transition: .5s;
     -webkit-transition: .5s;
-    transition: .5s 
+    transition: .5s;
 }
 
 .people-list .chat-list li {
-    padding: 10px 4px;
-    padding-top: 20px;
     list-style: none;
-    color: white;
-    border-radius: 3px
+    padding: 12px 4px;
+    width: 192px;
+    font-family: sans-serif;
+    border-radius: 3px;
 }
 
 .people-list .chat-list li:hover {
@@ -168,7 +173,7 @@ header a{
 }
 
 .people-list .chat-list li.active {
-    background: #efefef;
+    background: white;
     color: black;
 }
 
@@ -178,6 +183,8 @@ header a{
 
 .people-list .chat-list img {
     width: 45px;
+    height: 45px;
+    border: 1px solid rgb(78, 77, 77);
     border-radius: 50%
 }
 
@@ -188,13 +195,13 @@ header a{
 
 .people-list .about {
     float: left;
-    padding-left: 8px
+    padding-left: 8px;
 }
 
 .m-b-0{
     font-size: 15px;
     font-family: sans-serif;
-    color: #434651;
+    color: #47494b;
 }
 
 .people-list .status {
@@ -210,7 +217,8 @@ header a{
 .chat .chat-header img {
     float: left;
     border-radius: 40px;
-    width: 40px
+    width: 40px;
+    height: 40px;
 }
 
 .chat .chat-header .chat-about {
@@ -251,7 +259,7 @@ header a{
 }
 
 .chat .chat-history .message-data-time {
-    color: #434651;
+    color: #7a7c84;
     padding-left: 6px
 }
 
@@ -298,7 +306,7 @@ header a{
 }
 
 .chat .chat-history .other-message {
-    background: #e8f1f3;
+    background-color: rgb(167, 182, 182);
     text-align: right
 }
 
@@ -323,6 +331,7 @@ header a{
 }
 
 
+
 .online,
 .offline,
 .me {
@@ -332,11 +341,11 @@ header a{
 }
 
 .online {
-    color: #86c541
+    color: #8dc254
 }
 
 .offline {
-    color: red
+    color: rgb(167, 95, 95)
 }
 
 .me {
@@ -346,6 +355,7 @@ header a{
 .float-right {
     float: right
 }
+
 
 .clearfix:after {
     visibility: hidden;
@@ -368,7 +378,7 @@ header a{
     color: #434651;
     border: 1px solid black;
     padding: 20px;
-  
+   cursor: pointer;
    border-radius: 100%;
 }
 
@@ -379,18 +389,18 @@ header a{
     align-items: center;
     font-family: sans-serif;
     font-weight: bolder;
-    color: rgb(64, 62, 62);
+    color: rgb(236, 234, 234);
     justify-content: space-around;
 }
 
 #gc button{
-    width: 60px;
+    width: 50px;
     font-size: 30px;
-    height:60px;
+    height:48px;
     border-radius: 50%;
-    color: black;
+    color: rgb(240, 232, 232);
     border: 2px solid rgb(102, 99, 99);
-    background-color: #eae3eb;
+    background-color: #f6f2f7;
 
 }
 
