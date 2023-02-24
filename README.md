@@ -1,7 +1,7 @@
 # Chit Chat App
    -collaborative Project
    -Contributors
-   1.Ayushi Soni
+   1.Ayushi Soni(Team Lead)
    2.Dilip Sanap
    3.Pawan Ingalai
    4.Manthan Pelne
