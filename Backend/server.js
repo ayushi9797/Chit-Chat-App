@@ -21,9 +21,9 @@ app.use("/chat", chatRouter);
 server.listen(PORT, async () => {
   try {
     await connection;
-    console.log("Connected To Db".yellow.bold);
+    console.log("Connected To Db".cyan.underline);
   } catch (error) {
-    console.log("Not Connected To Db");
+    console.log("Not Connected To Db".red.underline);
     console.log(error);
   }
   console.log(`Server is listenig on :${PORT}`.yellow.bold);
