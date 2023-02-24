@@ -413,7 +413,7 @@ header a{
         width: 100%;
         overflow-x: auto;
         background: #fff;
-        left: -400px;
+        left: 0px;
         display: none
     }
     .chat-app .people-list.open {
@@ -434,18 +434,44 @@ header a{
         height: 40px;
         margin-top: 14px;
     }
+    .chat .chat-history .my-message {
+        background: #efefef;
+        width: 270px;
+    }
     
 }
 
-@media only screen and (min-width: 768px) and (max-width: 992px) {
+@media only screen and (min-width: 250px) and (max-width: 600px) {
     .chat-app .chat-list {
-        height: 650px;
-        overflow-x: auto
+        height: 150px;
+        width: 300px;
+     
     }
     .chat-app .chat-history {
-        height: 600px;
+        height: 400px;
         overflow-x: auto
     }
+    .float-right {
+        float: left;
+        width: 270px;
+    }
+    .chat-app .people-list {
+        width: 60px;
+    
+        left: 0;
+        top: 0;
+        padding: 20px;
+    
+    }
+    .people-list .chat-list li {
+        list-style: none;
+
+        width: 52px;
+        font-family: sans-serif;
+        border-radius: 3px;
+    }
+    
+   
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {

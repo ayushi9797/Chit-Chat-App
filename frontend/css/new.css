@@ -7,7 +7,7 @@ body{
 
 .box{
   display: flex;
-  width: 350px;
+  width: 150px;
   margin: auto;
 }
 
@@ -15,7 +15,7 @@ body{
   
     width:13.4%;
     margin: 0 auto;
-    height: 1040px;
+    height: 1580px;
     padding: 20px 36px;
     border-radius: 8px;
     margin-left: 500px;
@@ -152,7 +152,6 @@ body{
 }
 
 .names{
-
   height:1000px;
   width: 140px;
   margin-right: 670px;
@@ -179,6 +178,84 @@ body{
 
 .names p:nth-child(6){
   padding-top:125px;
+}
+.names p:nth-child(7){
+  padding-top:125px;
+}
+.names p:nth-child(8){
+  padding-top:125px;
+}
+.names p:nth-child(9){
+  padding-top:125px;
+}
+
+
+
+
+@media only screen and (max-width: 400px) {
+  .box{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+    width: 140px;
+    
+  }
+  .stories-container {
+  
+    width:62.4%;
+margin-top: 30px;
+    height: 1040px;
+    padding: 20px;
+    padding-top: 30px;
+    border-radius: 8px;
+    margin-left: 60px;
+    gap: 50px;
+    overflow: hidden ;
+    box-sizing: border-box;
+  }
+
+  
+  .names{
+    height:950px;
+    width: 60px;
+   padding-right: 600px;
+    font-size: 16px;
+    font-family: sans-serif;
+   
+  }
+
+  .names p:nth-child(1){
+
+  }
+
+  .names p:nth-child(2){
+    padding-top: 70px;
+  }
+  
+  .names p:nth-child(3){
+    padding-top: 60px;
+  }
+  
+  .names p:nth-child(4){
+    padding-top: 70px;
+  }
+  
+  .names p:nth-child(5){
+    padding-top: 70px;
+  }
+  
+  .names p:nth-child(6){
+    padding-top:70px;
+  }
+  .names p:nth-child(7){
+    padding-top:60px;
+  }
+  .names p:nth-child(8){
+    padding-top:60px;
+  }
+
+  .names p:nth-child(9){
+    padding-top:60px;
+  }
 }
 
 
