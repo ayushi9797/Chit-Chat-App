@@ -3,7 +3,7 @@
    -Contributors
    1.Ayushi Soni(Team Lead)
    2.Dilip Sanap
-   3.Pawan Ingalai
+   3.Pavan Ingalagi
    4.Manthan Pelne
    5.Aniket Babariaya
 
