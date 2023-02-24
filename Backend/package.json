@@ -1,0 +1,28 @@
+{
+  "name": "chit-chat-app",
+  "version": "1.0.0",
+  "description": "Buit with MERN",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Dilip Sanap",
+  "license": "ISC",
+  "dependencies": {
+    "@chakra-ui/react": "^2.5.1",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "bcrypt": "^5.1.0",
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express-async-handler": "^1.2.0",
+    "framer-motion": "^9.0.7",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.10.0",
+    "rdis": "^0.0.1-security",
+    "redis": "^4.6.4",
+    "socket.io": "^4.6.1",
+    "tar": "^6.1.13"
+  }
+}
