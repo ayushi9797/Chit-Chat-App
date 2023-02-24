@@ -4,9 +4,17 @@ const asynchandler=require("express-async-handler")
 const jwt=require("jsonwebtoken");
 const bcrypt=require("bcrypt")
 const redis = require("redis");
+require('dotenv').config()
 const { protect } = require("../middlewares/authenticate.middleware");
 //create client
-const client=redis.createClient();
+const client=redis.createClient({
+    password: process.env.RedisPass,
+    socket: {
+        host: 'redis-14389.c305.ap-south-1-1.ec2.cloud.redislabs.com',
+        port: 14389
+    }
+});
+
 //handle error
 client.on("error",err=>console.log("Redis client error",err));
 // connect the client
@@ -23,9 +31,9 @@ userRouter.get("/",protect, async (req, res) => {
     let name = req.query.search ? {
         $or: [
             { name: { $regex: req.query.search, $options: "i" } },
-            { amil: { $regex: req.query.search, $options: "i" } }
+            { email: { $regex: req.query.search, $options: "i" } }
         ]
-    }:{}
+    }:{};
     try {
         const data = await UserModel.find(name)
         // .find({ _id: { $ne: req.userID } });
