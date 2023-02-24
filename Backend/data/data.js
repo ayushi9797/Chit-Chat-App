@@ -1,4 +1,4 @@
- const chats = [
+const chats = [
   {
     isGroupChat: false,
     users: [
