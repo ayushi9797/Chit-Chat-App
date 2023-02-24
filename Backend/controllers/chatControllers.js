@@ -18,7 +18,7 @@ const accessChat = asynchandler(async (req, res) => {
     ],
   })
     .populate("users", "-pass")
-    .populate("latestMesssage");
+    .populate("latestMessage");
 
   isChat = await UserModel.populate(isChat, {
     path: "latestMessage.sender",
@@ -75,7 +75,7 @@ const createGroupChat = asynchandler(async (req, res) => {
   if (!req.body.users || !req.body.name) {
     return res.status(400).send({ message: "Please Fill All the fields" });
   }
-  var users = JSON.parse(req.body.users);
+  let users = JSON.parse(req.body.users);
 
   if (users.length < 2) {
     return res

@@ -19,11 +19,13 @@ chatRouter.route("/").get(protect, fetchChats);
 
 chatRouter.route("/group").post(protect, createGroupChat);
 
-chatRouter.route("/renamegroup").patch(protect, renameGroup);
+chatRouter.route("/addToGroup").put(protect, addToGroup);
+
+chatRouter.route("/renamegroup").put(protect, renameGroup);
 
 chatRouter.route("/removeFromGroup").put(protect, removeFromGroup);
 
-chatRouter.route("/addToGroup").put(protect, addToGroup);
+
 
 module.exports={chatRouter}
 
