@@ -1,55 +1,78 @@
 const socket = io("http://localhost:8080/", { transports: ["websocket"] });
-let textArea=document.querySelector("#textarea");
-let messageArea=document.querySelector(".message_area");
+
+// GET Message Area From The HTML
+let textArea = document.querySelector("");
+let messageArea = document.querySelector("");
+
+// Fetch here api of localhost:8080/message
+
+// Get Name OF person who send the chat by fetching the users data
+let name
 
 
-//giving name to user*****
-// let nam=document.getElementById("");
-let nam
-do{
-    nam=prompt("Please enter your nam :")
-}while(!nam)
+//**************** */ join chat**********************
+socket.emit("joinRoom", selectRoom._id);
 
 
-textArea.addEventListener('keyup',(e)=>{
-    if(e.key==="Enter"){
-        sendMessage(e.target.value)
-    }
+
+
+
+// Addding the Message in text Area On Enter
+textArea.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    sendMessage(e.target.value);
+  }
+});
+
+socket.emit("setup", user)
+
+socket.on("connection", () => {
+    
 })
 
-function sendMessage(message){
-let msg={
-    user:nam,
-    message:message.trim()
+
+
+
+//******************* */ send MessageGunctio***********************
+
+function sendMessage(message) {
+    let msg = {
+        user: name,
+        message: message.trim()
+    }
+    //append the message
+    appendMessage(msg, 'outgoing');
+
+    textArea.value = ''
+    scrollToBottom();
+    
+    socket.emit("new message", msg)
+    e.target.elements.msg.value = "";
+    // type anywhre but msg wil be types in inout box
+     e.target.elements.msg.focus();
 }
-//append the message
-appendMessage(msg,'outgoing');
 
-// to emty the textares
-textArea.value = ''
-scrollToBottom();
 
-    //**** */ Send to server ******
-    socket.emit('message', msg)
-}
 
-function appendMessage(msg,type){
-    let mainDiv=document.createElement('div')
-    let className=type;
-    mainDiv.classList.add(className,'message');
 
-    let markup=`
+// Function to append the message received from others
+function appendMessage(msg, type) {
+  let mainDiv = document.createElement("div");
+  let className = type;
+  mainDiv.classList.add(className, "message");
+
+  let markup = `
     <h4>${msg.user}</h4>
     <p>${msg.message}</p>
-    `
-    mainDiv.innerHTML=markup;
-    messageArea.appendChild(mainDiv)
+    `;
+  mainDiv.innerHTML = markup;
+  messageArea.appendChild(mainDiv);
 }
+// receive Message
 
-// *****receive Message****
-socket.on("message",(msg)=>{
-    appendMessage(msg,"incoming");
-    scrollToBottom();
+socket.on("message received", ( msg) => {
+     appendMessage(msg, "incoming");
+     scrollToBottom();
 })
 
 //to make message height to bottom
@@ -57,3 +80,12 @@ function scrollToBottom(){
     messageArea.scrollTop=messageArea.scrollHeight
 }
 
+
+//diconnect the chat
+// ****add leave btns ID here
+document.getElementById("leave-btn").addEventListener('click',(e)=>{
+    const leaveRoom=confirm("Are you shure, you want to leave room");
+    if(leaveRoom){
+        window.location.href="./index.html"
+    }
+})
