@@ -7,12 +7,14 @@ require('dotenv').config();
 const { userRouter } = require("./routes/user.route");
 const {chatRouter}=require("./routes/chat.route")
 const { chats } = require("./data/data");
+const {messageRouter}=require("./routes/messageroute")
 // const server = http.createServer(app);
 const PORT = process.env.port
 
 
 app.use("/user", userRouter);
-app.use("/chat",chatRouter)
+app.use("/chat", chatRouter)
+app.use("/message",messageRouter)
 
 
 app.get("/", (req, res) => {
