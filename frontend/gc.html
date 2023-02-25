@@ -32,11 +32,12 @@
     <!-- left-side -->
     <div class="first">
         <h2>CHIT-CHAT</h2> 
-        <input type="text" placeholder="Group Name">
+        <input id="groupname"  type="text" placeholder="Group Name">
         <br>
-        <input type="text" placeholder="Enter Username">
+        <input id="username" type="text" placeholder="Enter Username">
+        <div id="debouncebox"></div>
         <br>
-        <button>Join Chat</button>
+        <button id="btn" >Join Chat</button>
     </div>
 
     <!-- right-side -->
@@ -53,7 +54,7 @@
                 <main class="chat-main">
                   <div class="chat-sidebar">
                     <h3> Group Name:</h3>
-                    <h2 id="Group-Name"></h2>
+                    <ul id="Group-Name"></ul>
                     <h3> Users</h3>
                     <ul id="users"></ul>
                   </div>
@@ -82,5 +83,5 @@
 </body>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<script src="./scripts/cliient.js"></script>
+<script src="./scripts/gc.js"></script>
 </html>
