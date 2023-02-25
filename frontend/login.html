@@ -24,7 +24,7 @@
                     <label for="password" class="form_label"><i class="fas fa-lock-alt"></i> Your password</label>
                     <span class="password_eye"><i class="fas fa-eye"></i></span>
                 </div>
-                <button type="button" class="btn form_btn nextBtn">Begin Chat</button>
+                <button id="bgnchat" type="button" class="btn form_btn nextBtn">Begin Chat</button>
                 <p class="form_text">No Account ? <a href="./index.html">Sign up Now</a></p>
             </div>
         </form>
@@ -35,6 +35,10 @@
         const passwordEye = document.querySelector('.password_eye');
         const inputs = document.querySelectorAll('.form_input');
         const labels = document.querySelectorAll('.form_label');
+        const nextBtn=document.querySelector(".nextBtn");
+        nextBtn.onclick=()=>{
+            window.location.href="chat.html"
+        }
         passwordEye.addEventListener('click', function(){
             this.classList.toggle('active');
             if (this.classList.contains('active')) {
