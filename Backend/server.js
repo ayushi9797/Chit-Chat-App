@@ -4,10 +4,10 @@ const { connection } = require("./config/db");
 const http = require("http");
 const colors = require("colors");
 require("dotenv").config();
-const { Server } = require("socket.io");
 const { userRouter } = require("./routes/user.route");
 const { chatRouter } = require("./routes/chat.route");
 const { chats } = require("./data/data");
+const { messageRouter } = require("./routes/messageroute");
 const server = http.createServer(app);
 const PORT = process.env.port;
 
@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 
 app.use("/user", userRouter);
 app.use("/chat", chatRouter);
+app.use("/message", messageRouter);
 
 server.listen(PORT, async () => {
   try {
@@ -32,54 +33,48 @@ server.listen(PORT, async () => {
 // Boat Name
 const boatName = "Chit-Chat App";
 
-const io = new Server(server);
+const io = require("socket.io")(server, {
+  pingTimeout: 60000,
+  cors: {
+    origin: "http://localhost:3000",
+  },
+});
 
 io.on("connection", (socket) => {
-  console.log("Connected...to socket.io");
-
+  console.log("Connected to socket.io");
   socket.on("setup", (userData) => {
     socket.join(userData._id);
-    console.log(userData._id);
-    socket._cleanup.emit("connected");
-  });
-  // To join Chat room
-  socket.on("joinRoom", ({ username, room }) => {
-    //socket.id is the is assigned by  the socket.io
-    const user = userJoin(socket.id, username, room);
-    socket.join(user.room);
-    //welcome message to user joined the chat room
-    socket.emit("message", formatMesage(boatName, "Welcome to  Chit-Chat App"));
-    //boradcast others as new user joined
-    socket.broadcast
-      .to(user.room)
-      .emit(
-        "message",
-        formatMesage(boatName, `${user.username} has joined the chat room`)
-      );
+    socket.emit("connected");
   });
 
-  // To receive message from frontend
-  socket.on("new message", (msg) => {
-    console.log(msg);
-    var chat = msg.chat;
+  socket.on("join chat", (room) => {
+    socket.join(room);
+    console.log("User Joined Room: " + room);
+  });
+  socket.on("typing", (room) => socket.in(room).emit("typing"));
+  socket.on("stop typing", (room) => socket.in(room).emit("stop typing"));
+
+  socket.on("new message", (newMessageRecieved) => {
+    let chat = newMessageRecieved.chat;
+
     if (!chat.users) return console.log("chat.users not defined");
+
     chat.users.forEach((user) => {
-      if (user._id == msg.sender._id) return;
-      socket.in(user._id).emit("message received", msg);
+      if (user._id == newMessageRecieved.sender._id) return;
+
+      socket.in(user._id).emit("message recieved", newMessageRecieved);
     });
   });
 
-  // Disconnect or leave the user
-  socket.on("disconnect", () => {
-    const user = userLeave(socket.id);
-    io.to(user.room).emit(
-      "message",
-      formatMesage(boatName, `${user.username} left the chat`)
-    );
-    //update the chat room
-    io.to(user.room).emit("getroomUsers", {
-      room: user.room,
-      users: getRoomUsers(user.room),
-    });
+  socket.off("setup", () => {
+    console.log("USER DISCONNECTED");
+    socket.leave(userData._id);
   });
+
+  socket.off("setup",()=>{
+    console.log("USER DISCONNECTED");
+    socket.leave(userData._id);
+    });
+
 });
+
