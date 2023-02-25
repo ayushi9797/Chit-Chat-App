@@ -21,7 +21,7 @@ try {
       "content-type": "application/json",
     },
   };
-  const { data } = await axios.post(`/chat`, { userId }, config);
+  const { data } = await axios.post(`http://localhost:8080/chat`, { userId }, config);
   console.log(data);
 } catch (error) {
   console.log(error);
