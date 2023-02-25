@@ -10,9 +10,6 @@
   "author": "ChitChat",
   "license": "ISC",
   "dependencies": {
-    "@chakra-ui/react": "^2.5.1",
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
     "bcrypt": "^5.1.0",
     "colors": "^1.4.0",
     "dotenv": "^16.0.3",

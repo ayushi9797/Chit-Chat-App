@@ -35,6 +35,10 @@
         const passwordEye = document.querySelector('.password_eye');
         const inputs = document.querySelectorAll('.form_input');
         const labels = document.querySelectorAll('.form_label');
+         const nextBtn = document.querySelector(".nextBtn");
+         nextBtn.onclick = () => {
+                window.location.href = "chat.html"
+            }
         passwordEye.addEventListener('click', function(){
             this.classList.toggle('active');
             if (this.classList.contains('active')) {

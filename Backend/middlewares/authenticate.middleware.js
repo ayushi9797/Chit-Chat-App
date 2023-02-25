@@ -6,13 +6,13 @@ const { UserModel } = require("../Models/userModel");
 const asyncHandler = require("express-async-handler");
 
 // redis
-const client=redis.createClient({
-    password: 'sX1Hs0TTsEoksC7tJmwftaXuS7N7oEgi',
-    socket: {
-        host: 'redis-14389.c305.ap-south-1-1.ec2.cloud.redislabs.com',
-        port: 14389
-    }
-});
+const client=redis.createClient(
+    // password: 'sX1Hs0TTsEoksC7tJmwftaXuS7N7oEgi',
+    // socket: {
+    //     host: 'redis-14389.c305.ap-south-1-1.ec2.cloud.redislabs.com',
+    //     port: 14389
+    // }
+);
 // client error
 client.on("error",err=>console.log("Redis client error",err));
 // connect the client

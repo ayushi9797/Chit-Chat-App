@@ -7,13 +7,15 @@ const redis = require("redis");
 require('dotenv').config()
 const { protect } = require("../middlewares/authenticate.middleware");
 //create client
-const client=redis.createClient({
-    password: process.env.RedisPass,
-    socket: {
-        host: 'redis-14389.c305.ap-south-1-1.ec2.cloud.redislabs.com',
-        port: 14389
-    }
-});
+const client = redis.createClient(
+    // {
+    // password: process.env.RedisPass,
+    // socket: {
+    //     host: 'redis-14389.c305.ap-south-1-1.ec2.cloud.redislabs.com',
+    //     port: 14389
+    // }
+    // }
+);
 
 //handle error
 client.on("error",err=>console.log("Redis client error",err));

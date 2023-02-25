@@ -1,96 +1,216 @@
-// const socket = io("http://localhost:8080/", { transports: ["websocket"] });
+// Searching for User in serach box[left side menu]
 
-// GET Message Area From The HTML
-// let textArea = document.querySelector("");
-// let messageArea = document.querySelector("");
+// const { Socket } = require("socket.io");
+const socket = io("http://localhost:8080/", { transports: ["websocket"] });
+let url = "http://localhost:8080";
+let name = "Dilip";
+let getData = async () => {
+  const data = await fetch(`http://localhost:8080/user`); // pavan
+  let a = await data.json();
+  console.log(a);
+};
+getData();
 
-// Fetch here api of localhost:8080/message
+//////////////////////////////////////////////////////////
 
-// Get Name OF person who send the chat by fetching the users data
-let name
+// To Access Chat from list of chats[left side container] [selectin the person]
+// it will give the created chat
+try {
+  const config = {
+    headers: {
+      "content-type": "application/json",
+    },
+  };
+  const { data } = await axios.post(`/chat`, { userId }, config);
+  console.log(data);
+} catch (error) {
+  console.log(error);
+}
+
+//////////////////////////////////////////////////////////
+
+// fetching all the chats of the user
+
+try {
+  const { data } = await axios.get("/chat");
+  console.log(data);
+} catch (error) {
+  console.log(error);
+}
+
+//////////////////////////////////////////////////////////
+
+// craeting a group with users from db
+
+try {
+  const { data } = await axios.get(`/users?search=${searchingData}`);
+  console.log(data);
+} catch (error) {
+  console.log(error);
+}
+
+try {
+  const { data } = await axios.post(`/chat/group`, {
+    name: groupChatName,
+    users: JSON.stringify(selectedUsers.map((u) => u._id)),
+  });
+  console.log(data);
+} catch (error) {
+  console.log(error);
+}
+
+////////////////////////////////////////////////////////////
+
+//  Creating group
+
+// To Rename the Group Name
+
+try {
+  const { data } = await axios.put(`/chat/renamegroup`, {
+    chatId: selectedChat._id,
+    chatName: groupChatName,
+  });
+  console.log(data);
+} catch (error) {
+  console.log(error);
+}
+
+//   searching the user for adding to group
+
+try {
+  const { data } = await axios.get(`/users?search=${searchingData}`);
+  console.log(data);
+} catch (error) {
+  console.log(error);
+}
+
+//   adding the user to group
+
+try {
+  const { data } = await axios.put(`/chat/addToGroup`, {
+    chatId: selectedChat._id,
+    userId: user1._id,
+  });
+  console.log(data);
+} catch (error) {
+  console.log(error);
+}
+
+// Remove the user from group
+
+try {
+  const { data } = await axios.put(`/chat/removeFromGroup`, {
+    chatId: selectedChat._id,
+    userId: user1._id,
+  });
+  console.log(data);
+} catch (error) {
+  console.log(error);
+}
+
+////////////////////////////////////////////////////////////
+
+//  sendiing a message
+
+try {
+  const config = {
+    headers: {
+      "content-type": "application/json",
+    },
+  };
+  const { data } = await axios.post(
+    `/message`,
+    { content: "newmessage", chatId: selectedChat._id },
+    config
+  );
+  console.log(data);
+} catch (error) {
+  console.log(error);
+}
+
+////////////////////////////////////////////////////////////
+
+// Fetching all messages
+
+try {
+  const { data } = await axios.get(`/message/${id}`);
+  console.log(data);
+} catch (error) {
+  console.log(error);
+}
+
+//////////////////////////////////////////
+/*
+ for Socket.io
+ install npm i socket.io-client
+ inside js file
+
+*/
+const io = require("socket.io-client");
+const endpoint = "url of backend server";
+// let socket, selectedChatCompare;
+
+socket = io(endpoint);
+// it should give coneted to socket.io in a backend
+socket.emit("setup", user);
+socket.on("connected", () => setSocketConnected(true));
+socket.on("typing", () => setIsTyping(true));
+socket.on("stop typing", () => setIsTyping(false));
+
+// fetching the data
+socket.emit("join chat", selectedChat._id);
+
+socket.on("message recieved", (newMessageRecieved) => {
+  if (
+    !selectedChatCompare ||
+    selectedChatCompare._id !== newMessageRecieved.chat._id
+  ) {
+    //give notification
+  } else {
+    setMessages([...messages, newMessafeRevieved]);
+  }
+});
+
+//inside send message function
+
+socket.emit("new message", "data from api /message");
+
+//typing funcationality
+
+if (!socketConnected) return;
+
+if (!typing) {
+  setTyping(true);
+  socket.emit("typing", selectedChat._id);
+}
+let lastTypingTime = new Date().getTime();
+var timerLength = 3000;
+setTimeout(() => {
+  var timeNow = new Date().getTime();
+  var timeDiff = timeNow - lastTypingTime;
+  if (timeDiff >= timerLength && typing) {
+    socket.emit("stop typing", selectedChat._id);
+    setTyping(false);
+  }
+}, timerLength);
+
+//stop te typing icon after typing
+socket.emit("stop typing", selectedChat._id);
 
 
-//**************** */ join chat**********************
-// socket.emit("joinRoom", selectRoom._id);
-
-const send = document.getElementById("send");
-      send.onclick = () =>{
-        const msg = document.getElementById("msg");
-        console.log(msg.value);
-      }
 
 
 
 
-// Addding the Message in text Area On Enter
-// textArea.addEventListener("keyup", (e) => {
-//   if (e.key === "Enter") {
-//     sendMessage(e.target.value);
-//   }
-// });
-
-// socket.emit("setup", user)
-
-// socket.on("connection", () => {
-    
-// })
 
 
 
 
-// //******************* */ send MessageGunctio***********************
-
-// function sendMessage(message) {
-//     let msg = {
-//         user: name,
-//         message: message.trim()
-//     }
-//     //append the message
-//     appendMessage(msg, 'outgoing');
-
-//     textArea.value = ''
-//     scrollToBottom();
-    
-//     socket.emit("new message", msg)
-//     e.target.elements.msg.value = "";
-//     // type anywhre but msg wil be types in inout box
-//      e.target.elements.msg.focus();
-// }
 
 
 
 
-// // Function to append the message received from others
-// function appendMessage(msg, type) {
-//   let mainDiv = document.createElement("div");
-//   let className = type;
-//   mainDiv.classList.add(className, "message");
-
-//   let markup = `
-//     <h4>${msg.user}</h4>
-//     <p>${msg.message}</p>
-//     `;
-//   mainDiv.innerHTML = markup;
-//   messageArea.appendChild(mainDiv);
-// }
-// // receive Message
-
-// socket.on("message received", ( msg) => {
-//      appendMessage(msg, "incoming");
-//      scrollToBottom();
-// })
-
-// //to make message height to bottom
-// function scrollToBottom(){
-//     messageArea.scrollTop=messageArea.scrollHeight
-// }
 
 
-// //diconnect the chat
-// // ****add leave btns ID here
-// document.getElementById("leave-btn").addEventListener('click',(e)=>{
-//     const leaveRoom=confirm("Are you shure, you want to leave room");
-//     if(leaveRoom){
-//         window.location.href="./index.html"
-//     }
-// })
+
+
