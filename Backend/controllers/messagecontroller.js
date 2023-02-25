@@ -11,13 +11,13 @@ const sendMessage = asynchandler(async (req,res) => {
         return res.sendStatus(400);
         
     }
-    var newMessage = {
+    let newMessage = {
         sender: req.user._id,
         content: content,
         chat: chatId
-    }
+    }  
     try {
-        var message = await MessageModel.create(newMessage);
+        let message = await MessageModel.create(newMessage);
         message = await message.populate("sender", "name pic");
         message = await message.populate("chat");
         message = await UserModel.populate(message, {
