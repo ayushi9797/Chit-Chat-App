@@ -1,5 +1,5 @@
 #head{
-    width: 95%;
+    width: 100%;
     margin: auto;
     height:100px;
     border: 1px solid rgb(164, 160, 160);
@@ -32,60 +32,19 @@
 #box{
     width:96%;
     margin: auto;
-    height: 500px;
-   
-    margin-top: 40px;
-    display: flex;
+    height: 500px;  
 }
 
-.first{
-   
-    width: 35%;
-    margin-top: 10px;
-    height: 580px;
-	background-color: rgb(122, 143, 143);
-}
 
 .second{
- 
-    width: 65%;
+    width: 95%;
     height: 580px;
 }
 
-.first h2{
-    font-family: sans-serif;
-    margin-left: 170px;
-    margin-top: 20px;
-    
-    color: rgb(241, 232, 232);
-}
-
-.first p{
-    color: rgb(222, 219, 219);
-    margin-left: 160px;
-}
-.first input{
-    margin-top: 80px;
-    height: 40px;
-    font-size: 16px;
-    width: 290px;
-    margin-left: 100px;
-    border-radius: 7px;
-	border: none;
-}
-
-.first button{
-    margin-top: 100px;
-    margin-left: 170px;
-    width: 160px;
-    height: 50px;
-	font-size: 16px;
-	color: rgb(74, 70, 70);
-}
 
 .gcname{
     font-family: sans-serif;
-    font-size: 24px;
+    font-size: 24px;	
 }
 
 
@@ -269,13 +228,15 @@ a {
 .chat-form-container form {
 	display: flex;
 }
+.chat-form-container .btn{
+	background-color: #3d4f69;
+}
 
 .chat-form-container input[type='text'] {
 	font-size: 16px;
 	padding: 5px;
 	height: 40px;
 	flex: 1;
-   
 }
 
 .sent_msg {
@@ -285,6 +246,92 @@ float: right;
 .recieved_msg {
  float: left;
 }
+
+
+.open-button {
+	background-color: #43607c;
+	color: white;
+	padding: 10px 12px;
+	border: 2px solid white;
+	font-size: 15px;
+	cursor: pointer;
+	opacity: 0.8;
+	position: relative;
+
+	width: 200px;
+	height: 44px;
+  }
+  
+  /* The popup form - hidden by default */
+  .form-popup {
+	
+	position: fixed;
+	border: 3px solid #f1f1f1;
+	z-index: 9;
+	border-radius: 14px;
+	backdrop-filter: blur(40px);
+	margin-top: 700px;
+	margin-left: 500px;
+	width: 400px;
+}
+
+/* Add styles to the form container */
+.form-container {
+	max-width: 400px;
+	background-color: #353939;
+	padding: 20px;
+	border-radius: 14px;
+	color: white;
+	font-size: 15px;
+	backdrop-filter: blur(40px);
+  }
+  .form-container label{
+	padding: 20px;
+  }
+
+  #username{
+	margin-left: 10px;
+  }
+  
+  /* Full-width input fields */
+  .form-container input[type=text], .form-container input[type=password] {
+	
+	padding: 25px;
+	/* border: 10px solid blue; */
+	width: 200px;
+	height: 40px;
+	margin: 5px 0 22px 0;
+	border: none;
+	background: #f1f1f1;
+  }
+  
+  /* When the inputs get focus, do something */
+  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+	background-color: #ddd;
+	outline: none;
+  }
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+	background-color: #04AA6D;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	margin-bottom:10px;
+	opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+	background-color: red;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+	opacity: 1;
+  }
 
 @media all and (min-width:240px) and (max-width:500px){
 	#head{
@@ -300,6 +347,12 @@ float: right;
 		background-color: rgb(139, 157, 157);
 	}
 
+	.container{
+		padding-left: 180px;
+		padding-top:60px;
+
+	}
+
 	#box{
 		width:100%;
 		
@@ -310,55 +363,18 @@ float: right;
 		flex-direction: column;
 	}
 
-	.first{
-   
-		width: 100%;
-		margin-top: 10px;
-		height: 580px;
-		background-color: rgb(122, 143, 143);
-	}
 	
-	.second{
-	 
-		width: 100%;
-		height: 580px;
-	}
-	
-	.first h2{
-		font-family: sans-serif;
-		margin-left: 110px;
-		margin-top: 20px;
-		
-		color: rgb(241, 232, 232);
-	}
-	
-	.first p{
-		color: rgb(222, 219, 219);
-		margin-left: 160px;
-	}
-	.first input{
-		margin-top: 30px;
-		height: 30px;
-		font-size: 16px;
-		width: 250px;
-		margin-left: 40px;
-		border-radius: 7px;
-		border: none;
-	}
-	
-	.first button{
-		margin: 20px;
-		margin-top: 40px;
-		margin-left: 90px;
-		width: 160px;
-		height: 50px;
-		font-size: 16px;
-		color: rgb(74, 70, 70);
-	}
 	
 	.gcname{
 		font-family: sans-serif;
 		font-size: 24px;
+		margin-right: 300px;
+		width: 300px;
+		
+	}
+	.chat-main {
+		display: grid;
+		grid-template-columns:repeat(1,1fr)
 	}
 
 	.chat-sidebar {
@@ -366,8 +382,8 @@ float: right;
 		color: #fff;
 		padding: 20px 20px 60px;
 		overflow-y: scroll;
-		height: 400px;
-		width: 130px;
+		height: 50px;
+		width: 300px;
 		
 	}
 	
@@ -382,5 +398,91 @@ float: right;
 		margin-bottom: 15px;
 		font-size: 15px;
 	}
+	.chat-messages {
+		padding: 160px;
+		max-height: 500px;
+		overflow-y: scroll;
+	}
 
+	.chat-form-container input[type='text'] {
+		font-size: 16px;
+		height: 40px;
+		flex: 1;
+		width: 150px;
+	}
+
+	.open-button {
+	background-color: #43607c;
+	color: white;
+	padding: 10px 12px;
+	border: 2px solid white;
+	font-size: 13px;
+	cursor: pointer;
+	opacity: 0.8;
+	position: relative;
+	width: 200px;
+	height: 44px;
+	
+  }
+  
+  /* The popup form - hidden by default */
+  .form-popup {
+	
+	position: relative;
+	border: 3px solid #f1f1f1;
+	border-radius: 14px;
+	backdrop-filter: blur(40px);
+	margin-top: 100px;
+	margin-right: 410px;
+	font-size: 10px;
+}
+
+/* Add styles to the form container */
+.form-container {
+	max-width: 300px;
+	background-color: #353939;
+	padding: 10px;
+	font-size: 12px;
+	color: white;
+	border-radius: 14px;
+	backdrop-filter: blur(40px);
+  }
+  
+  /* Full-width input fields */
+  .form-container input[type=text], .form-container input[type=password] {
+	width: 100%;
+	padding: 25px;
+	height: 10px;
+	margin: 5px 0 22px 0;
+	border: none;
+	background: #f1f1f1;
+  }
+  
+  /* When the inputs get focus, do something */
+  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+	background-color: #ddd;
+	outline: none;
+  }
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+	background-color: #04AA6D;
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	margin-bottom:10px;
+	opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+	background-color: red;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+	opacity: 1;
+  }
 }
