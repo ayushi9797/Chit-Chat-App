@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>ChitChat</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script> 
+<script src="js/index.js"></script>
+</head>
+<body>
+	
+	<div id="mobileenter" class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form">
+					<span class="login100-form-title p-b-26">
+						Welcome to ChitChat
+					</span>
+					
+
+					<div id="mobilediv" class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						<input id="mobilenum" class="input100" type="number" name="phone">
+						<span class="focus-input100" data-placeholder="Mobile number"></span>
+					</div>
+					<div id="recaptcha-container"></div>
+
+					<p id="success" style="color:green";></p>
+					<p id="error" style="color:red";></p>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button type="button" class="login100-form-btn">
+								Send OTP
+							</button>
+						</div>
+					</div>
+
+				
+				</form>
+			</div>
+		</div>
+	</div>
+
+	
+	<div id="otpenter" class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form">
+					<span class="login100-form-title p-b-26">
+						Welcome to ChitChat
+					</span>
+
+	
+	<div id="otpdiv" class="wrap-input100 validate-input">
+		<input id="otpvalue" class="input100" type="number" name="Otp">
+		<span class="focus-input100" data-placeholder="Enter OTP"></span>
+	</div>
+	<p id="errorotp" style="color:red";></p>
+	<div class="container-login100-form-btn">
+		<div class="wrap-login100-form-btn">
+			<div class="login100-form-bgbtn"></div>
+			<button type="button" class="login100-form-btn">
+				Verify & Login
+			</button>
+		</div>
+	</div>
+
+
+</form>
+</div>
+</div>
+</div>
+
+
+	<div id="dropDownSelect1"></div>
+	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<script type="module" src="js/main.js"></script>
+
+</body>
+</html>
