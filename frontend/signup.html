@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../frontend/css/admin.css">
+    <link rel="stylesheet" href="../frontend/css/signup.css">
+    <!-- <link rel="stylesheet" href="../styles/signup.css"> -->
+</head>
+<body>
+<div id="mainDiv">
+<div id="leftDiv">
+    <div id="navbar">
+        
+    </div>
+    <div id="botomDiv">
+        <div id="signupText">
+            <h1>Create a Profile with,<br><span class="primary">ChitChat Family</span></h1>
+           <p>Already have an account? <a href="#">Login</a></p>
+        </div>
+        <div id="signupImage">
+            <img src="../frontend/images/signupimage.png" alt="">
+        </div>
+    </div>
+</div>
+<div id="rightDiv">
+    <div id="container">
+        <form>
+            <p>Create your ChitChat account</p>
+
+            <label for=""  class="labeldown">Email<span class="star">*</span></label><br />
+            <input id="email" type="email" required><br />
+            <div>
+                <div>
+                    <label for="" class="labeldown">First name<span class="star">*</span></label><br />
+                    <input id="fName" type="text" required><br />
+                </div>
+                <div>
+                    <label for="" class="labeldown">Last name<span class="star">*</span></label><br />
+                    <input id="lName" type="text"required>
+                </div>
+            </div>
+            <label for="" class="labeldown">Mobile number</label><br />
+            <input id="mbl" type="number" ><br />
+            <label for="" class="labeldown">Create password<span class="star">*</span></label><br />
+            <input id="pass" type="password"required><br />
+            <p class="note">Password must be at least 8 characters and contain at least one capital letter, one lower case letter, and one number.
+                  <br/><br>
+                By clicking "Next" you agree to receive marketing communications from ChitChat.</p>
+               <a  id="loginBTN" >Continue</a>
+        </form>
+        <div id="familyText">
+            <h1>Join <br> <span>ChitChat Family</span> <br> to get <br> inspired, claim discounts, <br> and <br> receive rewards.</h1>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
+<script src="../frontend/scripts/signup.js"></script>
