@@ -1,216 +1,205 @@
-// // Searching for User in serach box[left side menu]
+const socket = io('http://localhost:3000/', {
+  autoConnect: false
+});
 
-// // const { Socket } = require("socket.io");
-// const socket = io("http://localhost:8080/", { transports: ["websocket"] });
-// let url = "http://localhost:8080";
-// let name = "Dilip";
-// let getData = async () => {
-//   const data = await fetch(`http://localhost:8080/user`); // pavan
-//   let a = await data.json();
-//   console.log(a);
-// };
-// getData();
+// Global Variables 
+const chatBody = document.querySelector('.chat-body');
+const userTitle = document.getElementById('user-title');
+const loginContainer = document.querySelector('.login-container');
+const userTable = document.querySelector('.users');
+const userTagline = document.querySelector('#users-tagline');
+const title = document.querySelector('#active-user');
+const messages = document.querySelector('.messages');
+const msgDiv = document.querySelector('.msg-form');
 
-// //////////////////////////////////////////////////////////
+// Global methods
+const methods = {
+  socketConnect: async (username, userID) => {
+    socket.auth = { username, userID }
+    await socket.connect();
+  },
+  createSession: async (username) => {
+    let options = {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username })
+    }
+    await fetch('/session', options)
+      .then(res => res.json())
+      .then(data => {
+        // console.log(data);
+        methods.socketConnect(data.username, data.userID);
 
-// // To Access Chat from list of chats[left side container] [selectin the person]
-// // it will give the created chat
-// try {
-//   const config = {
-//     headers: {
-//       "content-type": "application/json",
-//     },
-//   };
-//   const { data } = await axios.post(`http://localhost:8080/chat`, { userId }, config);
-//   console.log(data);
-// } catch (error) {
-//   console.log(error);
-// }
+        // set localstorage for session
+        localStorage.setItem('session-username', data.username);
+        localStorage.setItem('session-userID', data.userID);
 
-// //////////////////////////////////////////////////////////
+        loginContainer.classList.add('d-none');
+        chatBody.classList.remove('d-none');
+        userTitle.innerHTML = data.username;
+      })
+      .catch(err => console.log(err))
+  },
+  setActiveUser: (username, userID) => {
+    title.innerHTML = username;
 
-// // fetching all the chats of the user
+    title.setAttribute('userID', userID);
 
-// try {
-//   const { data } = await axios.get("/chat");
-//   console.log(data);
-// } catch (error) {
-//   console.log(error);
-// }
+    // user list active and inactie class event handler
+    const list = document.getElementsByClassName('socket-users');
+    for (let i = 0; i < list.length; i++) {
+      list[i].classList.remove('table-active');
+    }
+    event.currentTarget.classList.add('table-active');
 
-// //////////////////////////////////////////////////////////
+    // display message area after selecting user
+    msgDiv.classList.remove('d-none');
+    messages.classList.remove('d-none');
+    messages.innerHTML = '';
+    socket.emit('fetch-messages', { receiver: userID });
+    const notify = document.getElementById(userID);
+    notify.classList.add('d-none');
+  },
+  appendMessage: ({ message, time, background, position }) => {
+    console.log(message);
+    console.log(time);
+    let div = document.createElement('div');
+    div.classList.add('message', 'bg-opacity-25', 'added', 'rounded', 'm-2', 'px-2', 'py-1', background, position);
+    div.innerHTML = `<span class="msg-text">${message}</span><span class="msg-time">${time}</span>`;
+    messages.append(div);
+    messages.scrollTo(0, messages.scrollHeight);
+  }
+}
 
-// // craeting a group with users from db
+// session variables
+const sessUsername = localStorage.getItem('session-username');
+const sessUserID = localStorage.getItem('session-userID');
 
-// try {
-//   const { data } = await axios.get(`/users?search=${searchingData}`);
-//   console.log(data);
-// } catch (error) {
-//   console.log(error);
-// }
+if (sessUsername && sessUserID) {
 
-// try {
-//   const { data } = await axios.post(`/chat/group`, {
-//     name: groupChatName,
-//     users: JSON.stringify(selectedUsers.map((u) => u._id)),
-//   });
-//   console.log(data);
-// } catch (error) {
-//   console.log(error);
-// }
+  methods.socketConnect(sessUsername, sessUserID);
 
-// ////////////////////////////////////////////////////////////
+  loginContainer.classList.add('d-none');
+  chatBody.classList.remove('d-none');
+  userTitle.innerHTML = sessUsername;
+}
 
-// //  Creating group
+// login form handler
+const loginForm = document.querySelector('.user-login');
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const username = document.getElementById('username');
+  methods.createSession(username.value.toLowerCase());
+  username.value = '';
+});
 
-// // To Rename the Group Name
+// user list table
+socket.on('users', ({ users }) => {
+  // console.log(users);
 
-// try {
-//   const { data } = await axios.put(`/chat/renamegroup`, {
-//     chatId: selectedChat._id,
-//     chatName: groupChatName,
-//   });
-//   console.log(data);
-// } catch (error) {
-//   console.log(error);
-// }
+  // removing self user
+  const index = users.findIndex(user => user.userID === socket.id);
+  if (index > -1) {
+    users.splice(index, 1);
+  }
 
-// //   searching the user for adding to group
+  // generating user table list
+  userTable.innerHTML = '';
+  let ul = `<table class="table table-hover">`;
+  for (const user of users) {
+    ul += `<tr class="socket-users" onclick="methods.setActiveUser('${user.username}', '${user.userID}')"><td>${user.username}<span class="text-danger ps-1 d-none" id="${user.userID}">!</span></td></tr>`;
+  }
+  ul += `</table>`;
+  if (users.length > 0) {
+    userTable.innerHTML = ul;
+    userTagline.innerHTML = "online users";
+    userTagline.classList.add('text-success');
+    userTagline.classList.remove('text-danger');
+  } else {
+    userTagline.innerHTML = 'no active user';
+    userTagline.classList.remove('text-success');
+    userTagline.classList.add('text-danger');
+  }
+});
 
-// try {
-//   const { data } = await axios.get(`/users?search=${searchingData}`);
-//   console.log(data);
-// } catch (error) {
-//   console.log(error);
-// }
+// chat form handler
+const msgForm = document.querySelector('.msgForm');
+const message = document.getElementById('message');
 
-// //   adding the user to group
+msgForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const to = title.getAttribute('userID');
+  let time = new Date().toLocaleString('en-US', {
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true
+  });
 
-// try {
-//   const { data } = await axios.put(`/chat/addToGroup`, {
-//     chatId: selectedChat._id,
-//     userId: user1._id,
-//   });
-//   console.log(data);
-// } catch (error) {
-//   console.log(error);
-// }
+  // set new message payload
+  let payload = {
+    from: socket.id,
+    to,
+    message: message.value,
+    time
+  }
 
-// // Remove the user from group
+  // emit message to server
+  socket.emit('message-to-server', payload);
 
-// try {
-//   const { data } = await axios.put(`/chat/removeFromGroup`, {
-//     chatId: selectedChat._id,
-//     userId: user1._id,
-//   });
-//   console.log(data);
-// } catch (error) {
-//   console.log(error);
-// }
+  methods.appendMessage({ ...payload, background: 'bg-success', position: 'right' });
 
-// ////////////////////////////////////////////////////////////
+  message.value = '';
+  message.focus();
+});
 
-// //  sendiing a message
+// receive private message
+socket.on('message-to-user', ({ from, message, time }) => {
+  const receiver = title.getAttribute('userID');
+  const notify = document.getElementById(from);
+  if (receiver === null) {
+    notify.classList.remove('d-none');
+  } else if (receiver === from) {
+    methods.appendMessage({
+      message,
+      time,
+      background: 'bg-secondary',
+      position: 'left'
+    });
+  } else {
+    notify.classList.remove('d-none');
+  }
+});
 
-// try {
-//   const config = {
-//     headers: {
-//       "content-type": "application/json",
-//     },
-//   };
-//   const { data } = await axios.post(
-//     `/message`,
-//     { content: "newmessage", chatId: selectedChat._id },
-//     config
-//   );
-//   console.log(data);
-// } catch (error) {
-//   console.log(error);
-// }
+// get stored messages from MongoDB
+socket.on('stored-messages', ({ messages }) => {
+  if (messages.length > 0) {
+    messages.forEach(msg => {
+      let payload = {
+        message: msg.message,
+        time: msg.time
+      }
+      if (msg.from === socket.id) {
+        methods.appendMessage({
+          ...payload,
+          background: 'bg-success',
+          position: 'right'
+        });
+      } else {
+        methods.appendMessage({
+          ...payload,
+          background: 'bg-secondary',
+          position: 'left'
+        });
+      }
+    })
+  }
+});
 
-// ////////////////////////////////////////////////////////////
-
-// // Fetching all messages
-
-// try {
-//   const { data } = await axios.get(`/message/${id}`);
-//   console.log(data);
-// } catch (error) {
-//   console.log(error);
-// }
-
-// //////////////////////////////////////////
-// /*
-//  for Socket.io
-//  install npm i socket.io-client
-//  inside js file
-
-// */
-// const io = require("socket.io-client");
-// const endpoint = "url of backend server";
-// // let socket, selectedChatCompare;
-
-// socket = io(endpoint);
-// // it should give coneted to socket.io in a backend
-// socket.emit("setup", user);
-// socket.on("connected", () => setSocketConnected(true));
-// socket.on("typing", () => setIsTyping(true));
-// socket.on("stop typing", () => setIsTyping(false));
-
-// // fetching the data
-// socket.emit("join chat", selectedChat._id);
-
-// socket.on("message recieved", (newMessageRecieved) => {
-//   if (
-//     !selectedChatCompare ||
-//     selectedChatCompare._id !== newMessageRecieved.chat._id
-//   ) {
-//     //give notification
-//   } else {
-//     setMessages([...messages, newMessafeRevieved]);
-//   }
-// });
-
-// //inside send message function
-
-// socket.emit("new message", "data from api /message");
-
-// //typing funcationality
-
-// if (!socketConnected) return;
-
-// if (!typing) {
-//   setTyping(true);
-//   socket.emit("typing", selectedChat._id);
-// }
-// let lastTypingTime = new Date().getTime();
-// var timerLength = 3000;
-// setTimeout(() => {
-//   var timeNow = new Date().getTime();
-//   var timeDiff = timeNow - lastTypingTime;
-//   if (timeDiff >= timerLength && typing) {
-//     socket.emit("stop typing", selectedChat._id);
-//     setTyping(false);
-//   }
-// }, timerLength);
-
-// //stop te typing icon after typing
-// socket.emit("stop typing", selectedChat._id);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+socket.on('user-away', userID => {
+  const to = title.getAttribute('userID');
+  if (to === userID) {
+    title.innerHTML = '&nbsp;';
+    msgDiv.classList.add('d-none');
+    messages.classList.add('d-none');
+  }
+})
