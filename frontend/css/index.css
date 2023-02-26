@@ -78,6 +78,12 @@ header a{
    
 }
 
+.box{
+    border: 1px solid black;
+    width: 600px;
+    height: 700px;
+}
+
 .content .box{
     position: relative;
     width: 1540px;

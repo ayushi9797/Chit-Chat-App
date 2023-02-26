@@ -2,9 +2,9 @@
   "name": "chit-chat-app",
   "version": "1.0.0",
   "description": "CHat App whcih is developed in 5 days",
-  "main": "server.js",
+  "main": "groupserver.js",
   "scripts": {
-    "server": "nodemon server.js"
+    "server": "nodemon groupserver.js"
   },
   "keywords": [],
   "author": "ChitChat",
@@ -17,6 +17,7 @@
     "express-async-handler": "^1.2.0",
     "framer-motion": "^9.0.7",
     "jsonwebtoken": "^9.0.0",
+    "moment": "^2.29.4",
     "mongoose": "^6.10.0",
     "nodemon": "^2.0.20",
     "rdis": "^0.0.1-security",

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="gc.css">
     <title>Document</title>
 </head>
@@ -14,17 +15,16 @@
    <div id="head">
     <button class="open-button" onclick="openForm()">Create Group</button>
     <div class="form-popup" id="myForm">
-      <form action="/action_page.php" class="form-container">
+      <form action="gc.html" class="form-container">
         <h1>Enter Group</h1>
     
         <label for="email"><b>Groupname</b></label>
-        <input type="text" placeholder="Enter Groupname" id="groupname" name="email" required>
+        <input type="text" placeholder="Enter Groupname" id="groupname" name="room" required>
     
         <label for="psw"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" id="username" name="psw" required>
+        <input type="text" placeholder="Enter Username" id="username" name="username" required>
         
-        <div id="Group-Name"></div>
-        <button type="submit" class="btn">Join</button>
+        <button id="btn" type="submit" class="btn">Join</button>
         <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
       </form>
     </div>
@@ -58,7 +58,9 @@
                 <main class="chat-main">
                   <div class="chat-sidebar">
                     <h3> Group Name:</h3>
-                    <ul id="Group-Name"></ul>
+                    <h3 id="Group-Name"></h3>
+                    <h3>Users:</h3>
+                    <ul id="users"></ul>
                   </div>
                   <div class="chat-messages"></div>
                 </main>
@@ -85,7 +87,7 @@
 </body>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<script src="./scripts/gc.js"></script>
+<script src="./client.js"></script>
 </html>
 
 <script>
