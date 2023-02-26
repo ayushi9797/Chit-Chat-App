@@ -12,10 +12,22 @@
 </head>
 <body>
    <div id="head">
-    <Div>
-        <div><input type="text" placeholder="Search"></div>
-        <div><ion-icon name="search-outline"></ion-icon></div>
-    </Div>
+    <button class="open-button" onclick="openForm()">Create Group</button>
+    <div class="form-popup" id="myForm">
+      <form action="/action_page.php" class="form-container">
+        <h1>Enter Group</h1>
+    
+        <label for="email"><b>Groupname</b></label>
+        <input type="text" placeholder="Enter Groupname" id="groupname" name="email" required>
+    
+        <label for="psw"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" id="username" name="psw" required>
+        
+        <div id="Group-Name"></div>
+        <button type="submit" class="btn">Join</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+    </div>
     <div class="container">
       <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">User
@@ -29,34 +41,24 @@
 
    <div id="box">
 
-    <!-- left-side -->
-    <div class="first">
-        <h2>CHIT-CHAT</h2> 
-        <input id="groupname"  type="text" placeholder="Group Name">
-        <br>
-        <input id="username" type="text" placeholder="Enter Username">
-        <div id="debouncebox"></div>
-        <br>
-        <button id="btn" >Join Chat</button>
-    </div>
-
     <!-- right-side -->
 
     <div class="second">
+      
         <div class="gcname">
             <div class="chat-container">
 
                 <header class="chat-header">
                   <h1></h1>
-                  <a id="leave-btn" class="btn">Exit Chat</a>
+                 
+               
+                  <a id="leave-btn" href="login.html" class="btn">Exit Chat</a>
                 </header>
 
                 <main class="chat-main">
                   <div class="chat-sidebar">
                     <h3> Group Name:</h3>
                     <ul id="Group-Name"></ul>
-                    <h3> Users</h3>
-                    <ul id="users"></ul>
                   </div>
                   <div class="chat-messages"></div>
                 </main>
@@ -85,3 +87,13 @@
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="./scripts/gc.js"></script>
 </html>
+
+<script>
+  function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
