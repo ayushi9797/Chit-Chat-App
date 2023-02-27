@@ -21,7 +21,8 @@
 -Socket.io
 
 
-
+# Deployed link
+https://storied-sprite-9ada24.netlify.app/
 
 API endpoints
 <!-- To start the server "npm start "-->
