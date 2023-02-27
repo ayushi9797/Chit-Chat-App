@@ -50,7 +50,7 @@ userRouter.get("/",protect, async (req, res) => {
 //POST the user signup data
 
 userRouter.post("/register",async(req,res)=>{
-    const { name, email, pass, pic } = req.body;
+    const { fname,lname, email, pass, pic } = req.body;
     const user = await UserModel.findOne({ email });
     try {
         if (user) {
@@ -62,7 +62,8 @@ userRouter.post("/register",async(req,res)=>{
                 console.log(err);
                 } else {
                 const data = new UserModel({
-                    name,
+                    fname,
+                    lname,
                     email,
                     pass: hash,
                     pic,

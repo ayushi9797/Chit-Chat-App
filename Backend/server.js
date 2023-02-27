@@ -1,8 +1,9 @@
-// const express = require("express");
+const express = require("express");
 // const app = express();
 // const { connection } = require("./config/db");
 // const http = require("http");
 // const colors = require("colors");
+// const cors = require("cors");
 // require("dotenv").config();
 // const { userRouter } = require("./routes/user.route");
 // const { chatRouter } = require("./routes/chat.route");
@@ -11,8 +12,7 @@
 // const server = http.createServer(app);
 // const PORT = process.env.port;
 
-
-
+// app.use(cors({ origin:"*" }));
 // app.use("/user", userRouter);
 // app.use("/chat", chatRouter);
 // app.use("/message", messageRouter);
@@ -30,7 +30,6 @@
 
 // // Boat Name
 // const boatName = "Chit-Chat App";
-
 
 // // Directory Part
 // const STATIC_FILES_PATH = path.resolve("../frontend");
@@ -81,7 +80,4 @@
 
 // });
 
-
 // // ****************Expreriment
-
- 
