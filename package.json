@@ -1,0 +1,31 @@
+{
+  "name": "tangy-geese-4843",
+  "version": "1.0.0",
+  "description": "-collaborative Project\r    -Contributors\r    1.Ayushi Soni(Team Lead)\r    2.Dilip Sanap\r    3.Pavan Ingalagi\r    4.Manthan Pelne\r    5.Aniket Babariaya",
+  "main": "index.js",
+  "scripts": {
+   "start": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayushi9797/tangy-geese-4843.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayushi9797/tangy-geese-4843/issues"
+  },
+  "homepage": "https://github.com/ayushi9797/tangy-geese-4843#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.3",
+    "nodemon": "^2.0.22",
+    "socket.io": "^4.6.1"
+  }
+}
