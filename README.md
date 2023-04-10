@@ -29,7 +29,7 @@
 
  # FRONTEND
 - React
-- 
+
 
  # Backend
 - Node.js
@@ -43,22 +43,19 @@
 https://chit-chat-app-buur.onrender.com
 
 
-
-
-
 API endpoints
 <!-- To start the server "npm start "-->
 NO need to give token . Taken care by redis.cliet.Get
 
 # Register
-localhost:5000/register
+localhost:5000/api/user/
 -Name
 -Email
 -Password
--pic link 
+-Pic link 
 
-# login
-localhost:5000/login
+# Login
+localhost:5000/api/user/login
 -Email
 -Password
 
@@ -66,10 +63,10 @@ localhost:5000/login
 
 
 
-1.***To Get All Users data
+# To Get All Users data
 localhost:5000/user/
 
-2.***To get data user by search
+# To get data user by search
 
 localhost:5000/user?search={name/email}
 
@@ -90,19 +87,19 @@ localhost:5000/message/:chatId
 # Group Chat
 <!--Access The Chat  -->
 
-1.get All chat
+1.Get All chat
 localhost:5000/chat
--post
+- Post
 
 2.get all chat
 localhost:5000/chat
--GET
+- GET
 
 <!-- 3.Create A group Chat -->
 localhost:5000/chat/group
 <!-- Need to provide -->
--name of Group
--add members
+-Name of Group
+-Add members
 
 <!-- 4.Rename The Group -->
 localhost:5000/chat/renameGroup
