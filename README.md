@@ -19,14 +19,15 @@
   -  Chat Chat is messaging app can support one-on-one and group chat functionality
    
    
-  ![chit-chat-home](https://user-images.githubusercontent.com/112810259/230891475-021658da-134d-4b09-9446-5d30db007361.png)
+   
+   ![chit-chat-app](https://user-images.githubusercontent.com/112810259/230863588-6a8be60f-62e8-43f9-a187-d94c7faa5180.png)
 
 
 # Tech Stack
 
  # FRONTEND
 - React
-- 
+
 
  # Backend
 - Node.js
@@ -58,10 +59,6 @@ localhost:5000/register
 localhost:5000/login
 -email
 -pass
-
- 
-   ![chit-chat-app](https://user-images.githubusercontent.com/112810259/230863588-6a8be60f-62e8-43f9-a187-d94c7faa5180.png)
-
 
 1.***To Get All Users data
 localhost:5000/user/
