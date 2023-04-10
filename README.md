@@ -49,15 +49,15 @@ NO need to give token . Taken care by redis.cliet.Get
 
 # Register
 localhost:5000/api/user/
--Name
--Email
--Password
--Pic link 
+- Name
+- Email
+- Password
+- Pic link 
 
 # Login
 localhost:5000/api/user/login
--Email
--Password
+- Email
+- Password
 
  ![chit-chat-app](https://user-images.githubusercontent.com/112810259/230863588-6a8be60f-62e8-43f9-a187-d94c7faa5180.png)
 
