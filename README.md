@@ -1,24 +1,43 @@
+## Project
+> tangy-gese-4843
+
+## Project name
+> Chit--chat-application
+
+
 # Chit Chat App
-   -collaborative Project
-   -Contributors
+- Collaborative Project
+   - Contributors
    1.Ayushi Soni(Team Lead)
    2.Dilip Sanap
    3.Pavan Ingalagi
    4.Manthan Pelne
    5.Aniket Babariaya
 
-   Chat Chat is messaging app can support one-on-one and group chat functionality;
+
+## Objective
+  -  Chat Chat is messaging app can support one-on-one and group chat functionality
+   
+   
+   
+   ![chit-chat-app](https://user-images.githubusercontent.com/112810259/230863588-6a8be60f-62e8-43f9-a187-d94c7faa5180.png)
+
 
 # Tech Stack
--HTML
--CSS
--JavaScript
--Node.js
--Express
--MongoDb Atlas
--Mongoose
--Moment
--Socket.io
+
+ * FRONTEND
+- HTML
+- CSS
+- JavaScript
+
+ * Backend
+- Node.js
+- Express
+- MongoDb Atlas
+- Mongoose
+- Moment
+- Socket.io
+
 
 
 # Deployed link
