@@ -20,14 +20,16 @@
    
    
    
-   ![chit-chat-app](https://user-images.githubusercontent.com/112810259/230863588-6a8be60f-62e8-43f9-a187-d94c7faa5180.png)
+  
+   
+   ![chit-chat-home](https://user-images.githubusercontent.com/112810259/230892410-2bdbcf80-0f4d-426e-b9cc-5a7a47d63429.png)
 
 
 # Tech Stack
 
  # FRONTEND
 - React
-
+- 
 
  # Backend
 - Node.js
@@ -50,15 +52,19 @@ NO need to give token . Taken care by redis.cliet.Get
 
 # Register
 localhost:5000/register
--name
--email
--pass
--pic link
+-Name
+-Email
+-Password
+-pic link 
 
 # login
 localhost:5000/login
--email
--pass
+-Email
+-Password
+
+ ![chit-chat-app](https://user-images.githubusercontent.com/112810259/230863588-6a8be60f-62e8-43f9-a187-d94c7faa5180.png)
+
+
 
 1.***To Get All Users data
 localhost:5000/user/
