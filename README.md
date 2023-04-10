@@ -42,6 +42,16 @@
 # Deployed link
 https://chit-chat-app-buur.onrender.com
 
+## Requirements
+- User can  sign up 
+- User can upload profile image with sign up
+- user can login with email and password
+- User can visit severals sections of chat 
+- Group chat  with multiple users
+- Find the users by search thier name 
+- User can leave the chat group
+
+
 
 API endpoints
 <!-- To start the server "npm start "-->
